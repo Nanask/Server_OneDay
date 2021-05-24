@@ -50,7 +50,7 @@ public class ToDoListServiceImpl implements ToDoListService {
 		// TODO 전체정보 검색
 		
 		String sql = " SELECT * FROM tbl_ToDoList ";
-		sql += " ORDER BY td_date DESC, td_time DESC ";
+		sql += " ORDER BY td_seq ";
 		
 		PreparedStatement pStr = null;
 		
@@ -121,21 +121,83 @@ public class ToDoListServiceImpl implements ToDoListService {
 	}
 
 	@Override
-	public void insert() {
-		// TODO Auto-generated method stub
+	public Integer insert(ToDoListVO tdVO) {
+		// TODO 추가하기
+		String sql = " INSERT INTO tbl_ToDoList ";
+		sql += " (";
+		sql += " td_date, ";
+		sql += " td_time, ";
+		sql += " td_writer, ";
+		sql += " td_place ) ";
+		sql += " VALUES( ?, ?, ?, ? )";
+		
+		PreparedStatement pStr = null;
+		
+		try {
+			pStr = dbConn.prepareStatement(sql);
+			pStr.setString(1, tdVO.getTd_date());
+			pStr.setString(2, tdVO.getTd_time());
+			pStr.setString(3, tdVO.getTd_writer());
+			pStr.setString(4, tdVO.getTd_place());
+			
+			return pStr.executeUpdate();
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		return null;
 
 	}
 
 	@Override
-	public void update() {
-		// TODO Auto-generated method stub
-
+	public Integer update(ToDoListVO tdVO) {
+		// TODO 수정
+		
+		String sql = " UPDATE tbl_ToDoList SET ";
+		sql += " td_date = ? ";
+		sql += " td_time = ? ";
+		sql += " td_wirter = ? ";
+		sql += " td_place = ? ";
+		sql += " WHERE td_seq = ? ";
+		
+		PreparedStatement pStr = null;
+		
+		try {
+			pStr = dbConn.prepareStatement(sql);
+			pStr.setString(1, tdVO.getTd_date());
+			pStr.setString(2, tdVO.getTd_time());
+			pStr.setString(3, tdVO.getTd_writer());
+			pStr.setString(4, tdVO.getTd_place());
+			pStr.setLong(5, tdVO.getTd_seq());
+			
+			return pStr.executeUpdate();
+			
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+	
+		return null;
 	}
 
 	@Override
-	public void delete() {
-		// TODO Auto-generated method stub
-
+	public Integer delete(Long seq) {
+		// TODO 데이터 삭제
+		
+		String sql = " DELETE FROM tbl_ToDoList ";
+		sql += " WHERE td_seq = ? ";
+		
+		PreparedStatement pStr = null;
+		
+		try {
+			pStr = dbConn.prepareStatement(sql);
+			pStr.setLong(1, seq);
+			return pStr.executeUpdate();
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		return null;
 	}
 
 }

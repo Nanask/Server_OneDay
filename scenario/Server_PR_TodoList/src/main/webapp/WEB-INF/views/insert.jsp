@@ -7,6 +7,15 @@
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
+<script>
+document.addEventListener("DOMContentLoaded",function(){
+	//alert("저장")
+	document.querySelector("button.btn_save").addEventListener("click",function(ev){
+		
+	})
+
+})
+</script>
 </head>
 <body>
 	<div>
@@ -24,7 +33,7 @@
 	<div>
 	<label>장소</label>
 	<input name="td_place" type="TEXT" value="${TD.td_place}">
-	<button class ="btn_white">추가</button>
+	<button class ="btn_save">추가</button>
 	</div>
 
 </body>

@@ -31,9 +31,11 @@ INSERT INTO tbl_todolist(td_seq, td_date, td_time, td_writer, td_place)
 VALUES(SEQ_TODOLIST.nextval,"2021-05-24","12:00","밥을 먹었다","학원");
 
 INSERT INTO tbl_todolist(td_seq, td_date, td_time, td_writer, td_place)
-VALUES(SEQ_TODOLIST.nextval,'2021-05-24','12:00','밥을 먹었다','학원');
+VALUES(SEQ_TODOLIST.nextval,'2021-05-25','12:00','밥을 먹었다','학원');
 
 DELETE FROM tbl_todolist;
+
+commit;
 
 
 

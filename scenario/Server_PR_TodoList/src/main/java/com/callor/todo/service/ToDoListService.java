@@ -10,8 +10,8 @@ public interface ToDoListService {
 	public ToDoListVO findById(Long td_seq);
 	public List<ToDoListVO> findByDate(String td_date);
 	
-	public void insert();
-	public void update();
-	public void delete();
+	public Integer insert(ToDoListVO tdVO);
+	public Integer update(ToDoListVO tdVO);
+	public Integer delete(Long seq);
 
 }

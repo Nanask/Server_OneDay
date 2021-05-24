@@ -20,6 +20,33 @@
          text-align: center;
      }    
 </style>
+<script>
+	document.addEventListener("DOMContentLoaded", function(){
+		document.querySelector("div.view_btn")
+		.addEventListener("click", function(ev) {
+			
+			let className = ev.target.className
+			//alert(target.className)
+			
+			if(className == "btn_home") {
+				document.location.href = "${rootPath}"
+			}else if(className == "btn_insert") {
+				
+				
+			}else if(className == "btn_update") {
+				document.location.href = "${rootPath}/todo/update?td_seq=" + ${TD.td_seq}
+				
+			}else if(className == "btn_delete") {
+				
+				if(confirm("내용을 삭제합니다")) {
+					document.location.replace("${rootPath}/todo/delete?td_seq=" + ${TD.td_seq})
+					
+				}
+			}
+		})
+		
+	})
+</script>
 </head>
 <body>
 	<table>

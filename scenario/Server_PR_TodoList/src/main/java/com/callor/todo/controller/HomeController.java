@@ -29,7 +29,7 @@ public class HomeController extends HttpServlet{
 		List<ToDoListVO> tdList = null;
 		tdList = tdService.selectAll();
 		req.setAttribute("LIST", tdList);
-		ReqController.forward(req, resp, "/home");
+//		ReqController.forward(req, resp, "/home");
 		
 		ToDoListVO tdVO = new ToDoListVO();
 		
