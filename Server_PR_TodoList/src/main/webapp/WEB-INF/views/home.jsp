@@ -34,22 +34,26 @@
 <script>
 document.addEventListener("DOMContentLoaded",function(){
 	document.querySelector("button.btn_search").addEventListener("click",function(ev) {
-		
-		document.location.href ="${rootPath}/todo/wirte?td_date=" + td_date
+		alert("test");
+		//href get으로 보내는거
+		//document.location.href ="${rootPath}/todo/search?td_date=" + td_date
+				//button의 기능을 querySelector 대신한다.
+				//domcument.querySelector("form").submit();		
 	})
 })
 </script>
 </head>
 <body>
-	<form method="POST">
+	
 	<h1>To Do List</h1>
 	<div>
+	<form action="todo/search" method="POST" >
 	<label>날짜로 검색하기</label>
 	<input name="td_date" type="date" value="${TD.td_date}">
 	<button class ="btn_search">검색</button>
+	</form>
 	</div>
 	
-	</form>
 	<%@ include file="/WEB-INF/views/list.jsp" %>
 </body>
 </html>

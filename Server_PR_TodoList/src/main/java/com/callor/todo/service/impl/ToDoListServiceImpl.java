@@ -107,8 +107,8 @@ public class ToDoListServiceImpl implements ToDoListService {
 		
 		try {
 			pStr = dbConn.prepareStatement(sql);
-			List<ToDoListVO> tdList = this.select(pStr);
 			pStr.setString(1, td_date);
+			List<ToDoListVO> tdList = this.select(pStr);
 			pStr.close();
 			return tdList;
 			

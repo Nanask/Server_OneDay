@@ -5,16 +5,8 @@
 <!DOCTYPE html>
 <html>
 <head>
-<meta charset="EUC-KR">
+<meta charset="UTF-8">
 <title>Insert title here</title>
-<script>
-document.addEventListener("DOMContentLoaded",function(){
-	
-		
-		document.location.href ="${rootPath}/todo/search?td_date=" + td_date
-})
-
-</script>
 </head>
 <body>
 	<table>

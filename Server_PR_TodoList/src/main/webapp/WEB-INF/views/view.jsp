@@ -18,7 +18,35 @@
      	border-collapse: collapse;
          border : 1PX solid grey;
          text-align: center;
-     }    
+     }
+/* div는 중간으로 맞추려면 text-align 만 있으면 됨  */	
+    div {
+
+    	text-align: center;
+    } 
+    button {
+		outline: 0;
+		border:0;
+		width: 100px;
+		color:white;
+		padding: 5px;
+	}
+	
+	button:nth-child(1) {
+		background-color: #395d39;
+	}
+	button:nth-child(2) {
+		background-color: #395d39;
+	}
+	button:nth-child(3) {
+		background-color: #395d39;
+	}
+	button:nth-child(4) {
+		background-color: #395d39; 
+	}
+	button:hover {
+		box-shadow: 2px 2px 2px rgba(0,0,0,0.3);
+	}	  
 </style>
 <script>
 	document.addEventListener("DOMContentLoaded", function(){
@@ -73,7 +101,6 @@
 		<button class="btn_insert">추가하기</button>
 		<button class="btn_update">수정하기</button>
 		<button class="btn_delete">삭제하기</button>
-	
 	</div>
 
 </body>

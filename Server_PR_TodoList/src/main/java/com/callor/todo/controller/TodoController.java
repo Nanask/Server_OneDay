@@ -31,8 +31,13 @@ public class TodoController extends HttpServlet{
 		String subPath = req.getPathInfo();
 		
 		if(subPath.equals("/search")) {
+//			ReqController.forward(req, resp, "search");
+//			System.out.println("subPath:" + subPath);
+			String strDate = req.getParameter("td_date");
+			List<ToDoListVO> tdList = tdService.findByDate(strDate);
+			req.setAttribute("TDLIST", tdList);
+			System.out.println(subPath);
 			ReqController.forward(req, resp, "search");
-			System.out.println("subPath:" + subPath);
 			
 		}else if(subPath.equals("/view")) {	
 			String strSeq = req.getParameter("td_seq");
@@ -105,11 +110,11 @@ public class TodoController extends HttpServlet{
 		
 		if(subPath.equals("/search")) {
 			
-			String strDate = req.getParameter("td_date");
-			List<ToDoListVO> tdList = tdService.findByDate(strDate);
-			req.setAttribute("TDLIST", tdList);
+//			String strDate = req.getParameter("td_date");
+//			List<ToDoListVO> tdList = tdService.findByDate(strDate);
+//			req.setAttribute("TDLIST", tdList);
 //			System.out.println(subPath);
-			ReqController.forward(req, resp, "search");
+//			ReqController.forward(req, resp, "search");
 			
 		}else if(subPath.equals("/update")) {
 			
