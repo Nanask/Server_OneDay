@@ -31,9 +31,11 @@
 			if(className == "btn_home") {
 				document.location.href = "${rootPath}"
 			}else if(className == "btn_insert") {
-				
+				if(confirm("내용을 추가합니다"))
+				document.location.href = "${rootPath}/todo/insert"
 				
 			}else if(className == "btn_update") {
+				if(confirm("내용을 수정합니다"))
 				document.location.href = "${rootPath}/todo/update?td_seq=" + ${TD.td_seq}
 				
 			}else if(className == "btn_delete") {

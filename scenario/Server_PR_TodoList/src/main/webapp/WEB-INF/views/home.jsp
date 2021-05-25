@@ -8,9 +8,28 @@
 <meta charset="UTF-8">
 <title>Insert title here</title>
 <style>
-	h1,label {
+	form {
+		margin: auto;
+	}
+
+	h1{
 	text-align: center;
-}
+	margin: 10px;
+	padding: 20px;
+	
+	}
+	label, input, button {
+	text-align: center;
+	margin: 10px;
+	}
+	
+	div {
+	text-align: center;
+	margin: 10px;
+
+	}
+	
+
 </style>
 <script>
 document.addEventListener("DOMContentLoaded",function(){

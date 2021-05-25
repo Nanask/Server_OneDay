@@ -40,7 +40,7 @@ public class HomeController extends HttpServlet{
 		
 		tdVO.setTd_seq(0L);
 		tdVO.setTd_date(sd.format(date));
-		tdVO.setTd_time(sd.format(date));
+		tdVO.setTd_time(st.format(date));
 		
 		req.setAttribute("TD", tdVO);
 		

@@ -124,12 +124,8 @@ public class ToDoListServiceImpl implements ToDoListService {
 	public Integer insert(ToDoListVO tdVO) {
 		// TODO 추가하기
 		String sql = " INSERT INTO tbl_ToDoList ";
-		sql += " (";
-		sql += " td_date, ";
-		sql += " td_time, ";
-		sql += " td_writer, ";
-		sql += " td_place ) ";
-		sql += " VALUES( ?, ?, ?, ? )";
+		sql += "(td_seq, td_date, td_time, td_writer, td_place)";
+		sql += " VALUES(seq_TODOLIST.NEXTVAL, ?, ?, ?, ? ) ";
 		
 		PreparedStatement pStr = null;
 		
@@ -154,9 +150,9 @@ public class ToDoListServiceImpl implements ToDoListService {
 		// TODO 수정
 		
 		String sql = " UPDATE tbl_ToDoList SET ";
-		sql += " td_date = ? ";
-		sql += " td_time = ? ";
-		sql += " td_wirter = ? ";
+		sql += " td_date = ?, ";
+		sql += " td_time = ?, ";
+		sql += " td_writer = ?, ";
 		sql += " td_place = ? ";
 		sql += " WHERE td_seq = ? ";
 		
@@ -169,6 +165,7 @@ public class ToDoListServiceImpl implements ToDoListService {
 			pStr.setString(3, tdVO.getTd_writer());
 			pStr.setString(4, tdVO.getTd_place());
 			pStr.setLong(5, tdVO.getTd_seq());
+			
 			
 			return pStr.executeUpdate();
 			
@@ -192,6 +189,7 @@ public class ToDoListServiceImpl implements ToDoListService {
 		try {
 			pStr = dbConn.prepareStatement(sql);
 			pStr.setLong(1, seq);
+		
 			return pStr.executeUpdate();
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block

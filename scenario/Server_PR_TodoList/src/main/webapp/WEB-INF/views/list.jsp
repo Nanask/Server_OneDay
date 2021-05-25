@@ -6,20 +6,24 @@
 	
 	table#list {
 		 border-collapse: collapse;
-         border : 1PX solid grey;
+         border : 1PX solid rgb(219, 250, 219);
          width : 50%;
          margin: 10PX auto;
          }
      table#list td, tr, th {
      	border-collapse: collapse;
-         border : 1PX solid grey;
+     	/* 줄색상 바꾸기 */
+         border : 1PX solid rgb(19, 51, 19);
          text-align: center;
      }    
          
 	 table#list tr:hover {
 		cousor : pointer;
-		background-color: #ddd;
+		background-color: rgb(211, 236, 211);
 		}
+	th {
+		background-color: rgb(141, 235, 141);
+	}	
 </style>
 <script>
 	document.addEventListener("DOMContentLoaded",function(){
@@ -28,7 +32,6 @@
 			let tag_name = ev.target.tagName;
 			if(tag_name == "TD") {
 				let td_seq = ev.target.closest("TR").dataset.seq
-				alert("저장화면으로")
 				
 				document.location.href="${rootPath}/todo/view?td_seq=" + td_seq
 			}
@@ -43,9 +46,11 @@
 		<th>작성시간</th>
 		<th>장소</th>
 	</tr>
-	<c:forEach items="${LIST}" var="TD">
+	<c:forEach items="${LIST}" var="TD"
+			varStatus="index">
 		<tr data-seq="${TD.td_seq}">
-			<td>${TD.td_seq}</td>
+			<td>${index.count}</td>
+			<%-- <td>${TD.td_seq}</td> --%>
 			<td>${TD.td_writer}</td>
 			<td>${TD.td_date}</td>
 			<td>${TD.td_time}</td>
